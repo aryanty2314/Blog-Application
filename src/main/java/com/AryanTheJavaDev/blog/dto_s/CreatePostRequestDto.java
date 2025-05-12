@@ -1,7 +1,7 @@
 package com.AryanTheJavaDev.blog.dto_s;
 
 
-import com.AryanTheJavaDev.blog.Entities.PostStatus;
+import com.AryanTheJavaDev.blog.entities.PostStatus;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

@@ -1,6 +1,6 @@
 package com.AryanTheJavaDev.blog.dto_s;
 
-import com.AryanTheJavaDev.blog.Entities.PostStatus;
+import com.AryanTheJavaDev.blog.entities.PostStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
