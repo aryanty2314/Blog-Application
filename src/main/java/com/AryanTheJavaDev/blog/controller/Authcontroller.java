@@ -1,7 +1,7 @@
 package com.AryanTheJavaDev.blog.controller;
 
-import com.AryanTheJavaDev.blog.dto_s.AuthResponse;
-import com.AryanTheJavaDev.blog.dto_s.LoginRequest;
+import com.AryanTheJavaDev.blog.dto_s.response.AuthResponse;
+import com.AryanTheJavaDev.blog.dto_s.requests.LoginRequest;
 import com.AryanTheJavaDev.blog.service.AuthenticationService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

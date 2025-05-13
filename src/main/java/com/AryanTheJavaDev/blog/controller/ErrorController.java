@@ -1,6 +1,6 @@
 package com.AryanTheJavaDev.blog.controller;
 
-import com.AryanTheJavaDev.blog.dto_s.ApiErrorResponse;
+import com.AryanTheJavaDev.blog.dto_s.response.ApiErrorResponse;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

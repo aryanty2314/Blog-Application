@@ -1,6 +1,6 @@
 package com.AryanTheJavaDev.blog.mappers;
 import com.AryanTheJavaDev.blog.dto_s.CategoryDTO;
-import com.AryanTheJavaDev.blog.dto_s.CreateCategoryRequest;
+import com.AryanTheJavaDev.blog.dto_s.requests.CreateCategoryRequest;
 import com.AryanTheJavaDev.blog.entities.Category;
 import com.AryanTheJavaDev.blog.entities.Post;
 import com.AryanTheJavaDev.blog.entities.PostStatus;

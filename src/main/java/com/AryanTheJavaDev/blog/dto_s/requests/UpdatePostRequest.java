@@ -1,4 +1,4 @@
-package com.AryanTheJavaDev.blog.dto_s;
+package com.AryanTheJavaDev.blog.dto_s.requests;
 
 
 import com.AryanTheJavaDev.blog.entities.PostStatus;
@@ -11,13 +11,14 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+@AllArgsConstructor
 @Builder
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-
-public class CreatePostRequest
+public class UpdatePostRequest
 {
+
+    private UUID id;
 
     private String title;
 
@@ -26,8 +27,9 @@ public class CreatePostRequest
     private UUID categoryId;
 
     @Builder.Default
-    private Set<UUID> tagsId = new HashSet<>();
+    private Set<UUID> tagIds = new HashSet<>();
 
     private PostStatus status;
+
 
 }

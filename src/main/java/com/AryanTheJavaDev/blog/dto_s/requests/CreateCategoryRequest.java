@@ -1,4 +1,4 @@
-package com.AryanTheJavaDev.blog.dto_s;
+package com.AryanTheJavaDev.blog.dto_s.requests;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

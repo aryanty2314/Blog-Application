@@ -1,5 +1,4 @@
-package com.AryanTheJavaDev.blog.dto_s;
-
+package com.AryanTheJavaDev.blog.dto_s.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,11 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
-public class AuthResponse
+public class LoginRequest
 {
-private String token;
-private long expiresIn;
+private String email;
+private String password;
 }

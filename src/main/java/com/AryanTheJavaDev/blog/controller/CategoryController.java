@@ -1,7 +1,7 @@
 package com.AryanTheJavaDev.blog.controller;
 
 import com.AryanTheJavaDev.blog.dto_s.CategoryDTO;
-import com.AryanTheJavaDev.blog.dto_s.CreateCategoryRequest;
+import com.AryanTheJavaDev.blog.dto_s.requests.CreateCategoryRequest;
 import com.AryanTheJavaDev.blog.entities.Category;
 import com.AryanTheJavaDev.blog.mappers.CategoryMapper;
 import com.AryanTheJavaDev.blog.service.CategoryService;

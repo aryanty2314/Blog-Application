@@ -5,7 +5,7 @@ import com.AryanTheJavaDev.blog.entities.Tag;
 import com.AryanTheJavaDev.blog.mappers.TagMapper;
 import com.AryanTheJavaDev.blog.service.TagService;
 import com.AryanTheJavaDev.blog.dto_s.TagDto;
-import com.AryanTheJavaDev.blog.dto_s.CreateTagRequest;
+import com.AryanTheJavaDev.blog.dto_s.requests.CreateTagRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

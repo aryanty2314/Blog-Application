@@ -1,13 +1,14 @@
 package com.AryanTheJavaDev.blog.controller;
 
+import com.AryanTheJavaDev.blog.dto_s.*;
+import com.AryanTheJavaDev.blog.dto_s.requests.CreatePostRequest;
+import com.AryanTheJavaDev.blog.dto_s.requests.UpdatePostRequest;
 import com.AryanTheJavaDev.blog.entities.Post;
 import com.AryanTheJavaDev.blog.entities.User;
 import com.AryanTheJavaDev.blog.mappers.PostMapper;
 import com.AryanTheJavaDev.blog.service.PostService;
 import com.AryanTheJavaDev.blog.service.UserService;
-import com.AryanTheJavaDev.blog.dto_s.CreatePostRequest;
-import com.AryanTheJavaDev.blog.dto_s.CreatePostRequestDto;
-import com.AryanTheJavaDev.blog.dto_s.PostDto;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,27 +34,54 @@ public class PostController {
         return ResponseEntity.ok(PostDtos);
     }
 
-    @GetMapping(path = "/drafts")
-    public ResponseEntity<List<PostDto>> getAllDrafts(@RequestAttribute UUID id)
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<PostDto> getPost(@PathVariable UUID id)
     {
-        User loggedInUser = userService.getUserById(id);
+        Post post = postService.getPost(id);
+       PostDto postDto = postMapper.toDto(post);
+       return ResponseEntity.ok(postDto);
+    }
+
+    @GetMapping(path = "/drafts")
+    public ResponseEntity<List<PostDto>> getAllDrafts(@RequestAttribute UUID userId)
+    {
+        User loggedInUser = userService.getUserById(userId);
         List<Post>  draftPosts = postService.getDraftPosts(loggedInUser);
         List<PostDto> PostDtos = draftPosts.stream().map(postMapper::toDto).toList();
-        return ResponseEntity.ok(PostDtos);
+          return ResponseEntity.ok(PostDtos);
     }
 
     @PostMapping
     public ResponseEntity<PostDto> createPost(
-    @RequestBody CreatePostRequestDto createPostRequestDto,
-    @RequestAttribute UUID Userid
+     @Valid @RequestBody CreatePostRequestDto createPostRequestDto,
+    @RequestAttribute UUID userId
     )
     {
-        User loggedInUser = userService.getUserById(Userid);
+        User loggedInUser = userService.getUserById(userId);
         CreatePostRequest createPostRequest =   postMapper.toCreatePostRequest(createPostRequestDto);
         Post createdPost = postService.createPost(loggedInUser, createPostRequest);
         PostDto createPostDto = postMapper.toDto(createdPost);
 
         return new ResponseEntity<>(createPostDto, HttpStatus.CREATED);
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<PostDto> updatePost(
+            @PathVariable UUID id,
+           @Valid @RequestBody UpdatePostRequestDto updatePostRequestDto
+            )
+    {
+        UpdatePostRequest updatePostRequest = postMapper.toUpdatePostRequest(updatePostRequestDto);
+        Post updatedPost = postService.updatePost(id,updatePostRequest);
+        PostDto updatedPostDto = postMapper.toDto(updatedPost);
+        return new ResponseEntity<>(updatedPostDto,HttpStatus.OK);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> deletePost(@PathVariable UUID id)
+    {
+         postService.deletePost(id);
+         return ResponseEntity.noContent().build();
     }
 
 }

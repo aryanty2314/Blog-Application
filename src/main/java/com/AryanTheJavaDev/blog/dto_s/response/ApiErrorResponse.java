@@ -1,4 +1,4 @@
-package com.AryanTheJavaDev.blog.dto_s;
+package com.AryanTheJavaDev.blog.dto_s.response;
 
 
 import lombok.AllArgsConstructor;
